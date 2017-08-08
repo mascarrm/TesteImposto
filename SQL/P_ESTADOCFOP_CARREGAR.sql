@@ -1,0 +1,43 @@
+USE [Teste]
+GO
+IF OBJECT_ID('dbo.P_ESTADOCFOP_CARREGAR') IS NOT NULL
+BEGIN
+    DROP PROCEDURE dbo.P_ESTADOCFOP_CARREGAR
+    IF OBJECT_ID('dbo.P_ESTADOCFOP_CARREGAR') IS NOT NULL
+        PRINT '<<< FALHA APAGANDO A PROCEDURE dbo.P_ESTADOCFOP_CARREGAR >>>'
+    ELSE
+        PRINT '<<< PROCEDURE dbo.P_ESTADOCFOP_CARREGAR APAGADA >>>'
+END
+go
+SET QUOTED_IDENTIFIER ON
+GO
+SET NOCOUNT ON 
+GO 
+CREATE PROCEDURE [dbo].[P_ESTADOCFOP_CARREGAR]
+(
+	@pEstadoOrigem char(2),
+	@pEstadoDestino char(2)
+)
+AS
+BEGIN
+	SELECT 
+		 [EstadosCFOP].[EstadoOrigem]
+		,[EstadosCFOP].[EstadoDestino]
+		,[EstadosCFOP].[CodigoCFOP]
+		,[CFOP].[Descricao]
+		,[CFOP].[FatorBase]
+	FROM
+		[EstadosCFOP] INNER JOIN
+		[CFOP] ON [EstadosCFOP].[CodigoCFOP] = [CFOP].[Codigo]
+	WHERE
+		[EstadosCFOP].[EstadoOrigem] = @pEstadoOrigem AND
+		[EstadosCFOP].[EstadoDestino] = @pEstadoDestino
+END
+GO
+GRANT EXECUTE ON dbo.P_ESTADOCFOP_CARREGAR TO [public]
+go
+IF OBJECT_ID('dbo.P_ESTADOCFOP_CARREGAR') IS NOT NULL
+    PRINT '<<< PROCEDURE dbo.P_ESTADOCFOP_CARREGAR CRIADA >>>'
+ELSE
+    PRINT '<<< FALHA NA CRIACAO DA PROCEDURE dbo.P_ESTADOCFOP_CARREGAR >>>'
+go

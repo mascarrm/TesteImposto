@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<NotaFiscal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <NumeroNotaFiscal>100018</NumeroNotaFiscal>
+  <Serie>2132217569</Serie>
+  <NomeCliente>Nome do Cliente</NomeCliente>
+  <EstadoDestino>MG</EstadoDestino>
+  <EstadoOrigem>SP</EstadoOrigem>
+  <ItensDaNotaFiscal>
+    <NotaFiscalItem>
+      <Cfop>6.002</Cfop>
+      <TipoIcms>10</TipoIcms>
+      <BaseIcms>100</BaseIcms>
+      <AliquotaIcms>0.17</AliquotaIcms>
+      <ValorIcms>17</ValorIcms>
+      <BaseIpi>100</BaseIpi>
+      <AliquotaIpi>0.1</AliquotaIpi>
+      <ValorIpi>10</ValorIpi>
+      <Desconto>0</Desconto>
+      <NomeProduto>Produto 1</NomeProduto>
+      <CodigoProduto>COD</CodigoProduto>
+    </NotaFiscalItem>
+  </ItensDaNotaFiscal>
+</NotaFiscal>
